@@ -1,0 +1,40 @@
+.TodoItem{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    width: 85%;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color:white;
+}
+.todo-date{
+    border: 1px solid;
+    margin-right: 5%;
+    margin-left: 5%;
+    height: 85%;
+    width: 75px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 100%;
+    justify-content: center;
+    background-color: #abc4ff;
+    border: none;
+    border-radius: 8px;
+}
+.todo-finished{
+    margin-right: 20px;
+    height: 45px;
+    font-size: 100%;
+    width: 75px;
+}
+.finished-todo{
+    text-decoration: line-through 4px;
+    opacity: 0.5;
+
+}
+h2{
+    cursor: pointer;
+}

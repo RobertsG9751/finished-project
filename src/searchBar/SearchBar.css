@@ -1,0 +1,13 @@
+.search-bar-div{
+    width: 100%;
+    height: 7%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.search-inpt{
+    width: 37%;
+    height: 49px;
+    font-size:100%;
+}
+.search-inpt:focus {outline:0;}
