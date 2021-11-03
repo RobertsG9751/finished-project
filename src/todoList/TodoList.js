@@ -15,7 +15,7 @@ const TodoList = props =>{
                     return <TodoItem 
                     id={items._id}
                     key={i}
-                    todo={items.todo} 
+                    todo={items.todo.toLowerCase()} 
                     status={items.completed}
                     createdAt={items.createdAt}
                     up_func={up_func2}

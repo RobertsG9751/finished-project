@@ -4,16 +4,23 @@ const AddNewTodo = props => {
 
     const [newTodoState, setNewTodoState] = useState("")
     const newTodo = async function(){
-        fetch(`https://skolas-api.herokuapp.com/api/todos`, {
+        await fetch(`https://skolas-api.herokuapp.com/api/todos`, {
             headers: {
               'Accept': 'application/json',
               'Content-Type': 'application/json'
             },
             method: 'POST',                                                              
             body: JSON.stringify( { todo: newTodoState } )                                        
-        })
+        }).then(async(e)=>{
         setNewTodoState("")
-        props.up_func(1)
+        const rawResponse = await fetch('https://school-project-v2-jt.herokuapp.com/todos',{
+            method: 'GET',
+            headers: new Headers({
+                'Authorization': `Bearer ${localStorage.getItem("token")}`
+        })})
+        const parsedData = await rawResponse.json()
+        props.up_func(parsedData)
+        })
     }
     const textChange = function(event){
         setNewTodoState(event.target.value)

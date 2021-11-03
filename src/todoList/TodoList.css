@@ -7,12 +7,12 @@
 }
 .todo-inner{
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
     align-items: center;
     border-radius:10px;
     width: 70%;
-    height: 700px;
+    height: 90%;
     background-color: #c1d3fe;
     overflow: auto;
 }

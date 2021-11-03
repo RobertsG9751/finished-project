@@ -25,21 +25,28 @@ const TodoItem = props => {
         }
     }
     const deleteTodo = async function(){
-        fetch(`https://skolas-api.herokuapp.com/api/todos/id/${props.id}`, {
-            headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json'
-            },
-            method: 'DELETE',                                                                                                  
+        fetch(`https://school-project-v2-jt.herokuapp.com/todos/${props.id}`, {
+            method: 'DELETE', 
+            headers: new Headers({
+                'Authorization': `Bearer ${localStorage.getItem("token")}`
+            })
         })
-        props.up_func(1)
+        .then(async(e)=>{
+            const rawResponse = await fetch('https://school-project-v2-jt.herokuapp.com/todos',{
+                method: 'GET',
+                headers: new Headers({
+                    'Authorization': `Bearer ${localStorage.getItem("token")}`
+            })
+        })
+            const parsedData = await rawResponse.json()
+            props.up_func(parsedData)
+        })
     }
-
     return (
         <div className="TodoItem">
             <div className="todo-date">
                 <div>{props.createdAt.slice(0,4)}</div>
-                <div>{months[+props.createdAt.slice(5,7)-1]}{props.createdAt.slice(8,10)}</div>
+                <div>{months[+props.createdAt.slice(5,7)-1]} {props.createdAt.slice(8,10)}</div>
                 <div>{props.createdAt.slice(11,16)}</div>
             </div>
             <h2 className={props.status==true ? "finished-todo" : ""} onClick={finishTodo}>{props.todo}</h2>
