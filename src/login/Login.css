@@ -36,3 +36,22 @@
 .login-screenBIG{
     display: flex;
 }
+
+@media only screen and (max-width: 450px) {
+    .login-inpt{
+        margin-bottom: 10px;
+        height: 5%;
+        width: 50%;
+        font-size: 100%;
+    }
+    .login-btn{
+        margin-top: 10px;
+        height: 6%;
+        width: 20%;
+        border-radius: 40px;
+        font-size: 100%;
+        transition: transform 0.5s;
+        background-color: #abc4ff;
+        border: 2px solid black;
+    }
+  }
