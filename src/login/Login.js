@@ -33,6 +33,8 @@ const Login = (props) => {
         })
         const data2 = await rawResponse2.json()
         document.querySelector('.login-screen').style.display = "none"
+        console.log(data2.data.reverse())
+        console.log(data2.data)
         props.up_func3(data2)
     }
 
