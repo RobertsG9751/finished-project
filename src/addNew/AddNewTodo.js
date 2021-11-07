@@ -19,6 +19,7 @@ const AddNewTodo = props => {
                 'Authorization': `Bearer ${localStorage.getItem("token")}`
         })})
         const parsedData = await rawResponse.json()
+        console.log(parsedData)
         props.up_func(parsedData)
         })
     }
