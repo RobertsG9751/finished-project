@@ -41,10 +41,9 @@ h2{
 @media only screen and (max-width: 450px) {
     .todo-finished{
         margin-right: 10px;
-        margin-left: 5px;
         height: 30px;
         font-size: 100%;
-        width: 50px;
+        width: 22%;
     }
     .todo-date{
         border: 1px solid;
