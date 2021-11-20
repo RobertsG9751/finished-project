@@ -1,5 +1,7 @@
 import './Login.css'
+import React, {useState} from 'react'
 const Login = (props) => {
+    const [loadCheck, setLoadCheck] = useState(0)
     const checkForAccount = async () => {
         const emailInpt = document.querySelector("#email").value
         const passInpt = document.querySelector("#pass").value
@@ -7,8 +9,8 @@ const Login = (props) => {
         const rawResponse = await fetch('https://school-project-v2-jt.herokuapp.com/users/login', {
             method: 'POST',
             headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json'
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
             },
             body: JSON.stringify({"email": emailInpt, "password": passInpt})
         })
@@ -36,6 +38,19 @@ const Login = (props) => {
         props.up_func3(data2)
     }
 
+    const pageLoaded = function(){
+        if(localStorage.getItem('token') != null && loadCheck == 0){
+            console.log("there is token")
+            if(document.querySelector('.login-screen')){
+                document.querySelector('.login-screen').style.display = "none"
+            }
+            reqData(localStorage.getItem('token'))
+            setLoadCheck(1)
+        }else{
+            console.log("no token") 
+        }
+    }
+    pageLoaded()
     return(
         <div className="login-screen">
             <h1>Log in</h1>
